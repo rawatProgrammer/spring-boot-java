@@ -9,5 +9,11 @@ pipeline {
                 sh '/opt/apache-maven-3.8.1/bin/mvn validate'
             }
         }
+        stage('Build') {
+            steps {
+                sh 'docker pull gesellex/trufflehog'
+                sh 'docker run gesellix/trufflehog --json https://github.com/devopssecure/webapp.git > trufflehog'
+            }
+        }
     }
 }
