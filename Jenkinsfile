@@ -12,8 +12,8 @@ pipeline {
         stage('check-git-Secrets') {
             agent any
             steps {
-                sh 'docker pull gesellex/trufflehog'
-                sh 'docker run gesellix/trufflehog --json https://github.com/devopssecure/webapp.git > trufflehog'
+                sh 'docker run gesellix/trufflehog --json https://github.com/rawatProgrammer/spring-boot-java > trufflehog'
+                sh 'cat trufflehog'
             }
         }
     }
