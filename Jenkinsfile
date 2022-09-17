@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Build') {
             agent any
@@ -10,6 +10,7 @@ pipeline {
             }
         }
         stage('check-git-Secrets') {
+            agent any
             steps {
                 sh 'docker pull gesellex/trufflehog'
                 sh 'docker run gesellix/trufflehog --json https://github.com/devopssecure/webapp.git > trufflehog'
